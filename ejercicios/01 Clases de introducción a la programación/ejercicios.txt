@@ -1,0 +1,35 @@
+El archivo inmuebles.js contiene información real de 100 propiedades de una inmobiliaria, algunas en venta y otras en alquiler. Su formato es el siguiente:
+
+var inmuebles = [
+  {
+    "localidad": "Santa Fe",
+    "calle": "Iturraspe",
+    "numero": 2405,
+    "operacion": "Alquiler",
+    "precio": 8500
+  },
+  {
+    "localidad": "Santo Tome",
+    "calle": "1ra Junta",
+    "numero": 4845,
+    "operacion": "Compra",
+    "precio": 5500000
+  },
+  ...
+];
+
+Ejercicios
+----------
+
+1. Listar el domicilio del primer inmueble
+
+2. Listar todos los domicilios de todos los inmuebles
+
+3. Contar los inmuebles que quedan en calle "Primera Junta"
+
+4. Contar los inmuebles que tengan un alquiler mayor a 5000
+
+5. Calcular el promedio de los alquileres en la ciudad de Santa Fe
+
+6. Comparar el promedio de alquileres de las ciudades de Santa Fe y Santo Tomé, e indicar cuál de las dos ciudades es más cara.
+
