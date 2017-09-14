@@ -4,21 +4,23 @@
 
   // La variable inmuebles tiene una lista (array) de inmuebles
   // Cada inmueble tiene: localidad, calle, numero, operacion, precio
-  // 
+  //
   // Problema:
   // ---------
-  // 
+  //
   // Recorrer la lista y contar los domicilios de la calle Primera Junta
-  // 
+  //
 
+  // inicializo la cantidad en cero
   var cant = 0;
 
-  for( i=0; i<100; i++ ) {
+  for(var i=0; i<100; i++) {
     if (inmuebles[i].calle === 'Primera Junta') {
       cant++;
     }
-  }
+  } // fin for
 
+  // finalizado el for, imprimo la cantidad calculada
   console.log("En Primera Junta hay " + cant + " inmuebles");
 
 </script>

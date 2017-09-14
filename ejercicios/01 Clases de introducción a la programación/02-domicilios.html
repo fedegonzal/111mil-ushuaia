@@ -4,14 +4,17 @@
 
   // La variable inmuebles tiene una lista (array) de inmuebles
   // Cada inmueble tiene: localidad, calle, numero, operacion, precio
-  // 
+  //
   // Problema:
   // ---------
-  // 
+  //
   // Recorrer la lista y mostrar en la consola, los domicilios de cada inmueble
-  // 
+  //
 
-  for( i=0; i<100; i++ ) {
+  // Como se que tengo 100 utilizo un for de 0 a 99
+  for(var i=0; i<100; i++) {
+    // utilizo la variable "i" para acceder a cada posicion del vector (0,1...99)
+    // y desde allí obtener los datos de cada inmueble para mostrar el domicilio
     console.log(inmuebles[i].calle + ' ' + inmuebles[i].numero);
   }
 
