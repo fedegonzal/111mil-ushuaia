@@ -1,0 +1,73 @@
+<script src="inmuebles.js"></script>
+
+<script>
+
+  // La variable inmuebles tiene una lista (array) de inmuebles
+  // Cada inmueble tiene: localidad, calle, numero, operacion, precio
+  //
+  // Problema:
+  // ---------
+  //
+  // Comparar el promedio de alquileres de las ciudades de Santa Fe y Santo Tomé, e indicar cuál de las dos ciudades es más cara.
+
+  // variables para Santa Fe
+  var cantSF = 0;
+  var sumaSF = 0;
+  var promedioSF;
+
+  // variables para Santo Tomé
+  var cantST = 0;
+  var sumaST = 0;
+  var promedioST;
+
+  var inmueble;
+
+  // función suma del ejercicio anterior
+  function promedio(suma, cantidad) {
+    if (cantidad == 0) {
+      return 0;
+    }
+    else {
+      return suma/cantidad;
+    }
+  }
+
+  for(var i=0; i<100; i++) {
+    // asigno el inmueble actual a una variable para mayor claridad
+	inmueble = inmuebles[i];
+
+    // primero compruebo si es alquiler
+	if (inmueble.operacion == "Alquiler") {
+
+        // compruebo si pertenece a Santa Fe
+		if (inmueble.localidad == "Santa Fe") {
+			cantSF++;
+			sumaSF = sumaSF + inmueble.precio;
+		}
+
+        // compruebo si pertenece a Santo Tomé. No uso un ELSE porque hay más ciudades
+		if (inmueble.localidad == "Santo Tome") {
+			cantST++;
+			sumaST = sumaST + inmueble.precio;
+		}
+	} // fin IF alquiler
+  } // fin FOR
+
+  // Calculo ambos promedios con la función definida arriba
+  promedioSF = promedio(sumaSF, cantSF);
+  promedioST = promedio(sumaST, cantST);
+
+  // comparo los promedios para mostrar el mensaje correcto
+  if (promedioSF > promedioST) {
+  	console.log("Santa Fe tiene alquileres más caros que Santo Tomé");
+  }
+  else {
+  	if (promedioSF < promedioST) {
+      console.log("Santo Tomé tiene alquileres más caros que Santa Fe")
+  	}
+  	else {
+  		console.log("Santo Tomé y Santa Fe tienen igual promedio de precio de alquileres")
+  	}
+  }
+
+</script>

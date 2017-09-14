@@ -1,0 +1,28 @@
+<script src="inmuebles.js"></script>
+
+<script>
+
+  // La variable inmuebles tiene una lista (array) de inmuebles
+  // Cada inmueble tiene: localidad, calle, numero, operacion, precio
+  //
+  // Problema:
+  // ---------
+  //
+  // Recorrer la lista y Contar los inmuebles que tengan un alquiler mayor a 5000
+  //
+
+  // inicializo la cantidad en cero
+  var cant = 0;
+
+  for(var i=0; i<100; i++) {
+    // utilizo el operador "&&" (AND / Y) para ver si el inmueble cumple con
+    // las dos condiciones propuestas por el ejercicio. Si una de las dos condiciones
+    // es falsa, NO entrará al IF
+    if (inmuebles[i].operacion == "Alquiler" && inmuebles[i].precio > 5000) {
+          cant++;
+    }
+  } // fin for
+
+  console.log("Cantidad de alquileres que cuestan más de $5000 es: " + cant );
+
+</script>

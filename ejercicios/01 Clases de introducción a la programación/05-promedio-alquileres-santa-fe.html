@@ -1,0 +1,45 @@
+<script src="inmuebles.js"></script>
+
+<script>
+
+  // La variable inmuebles tiene una lista (array) de inmuebles
+  // Cada inmueble tiene: localidad, calle, numero, operacion, precio
+  //
+  // Problema:
+  // ---------
+  //
+  // Recorrer la lista y Calcular el promedio de los alquileres en la ciudad de Santa Fe
+  //
+
+  // inicializo variables
+  var cant = 0;
+  var suma = 0;
+
+  // Esto es la definición de una función llamada promedio.
+  // Recibe como parámetros la suma y la cantidad, para dividirlas.
+  // También tiene en cuenta que si la cantidad es cero NO realiza la división
+  // para evitar errores.
+  function promedio(suma, cantidad) {
+    // cuando la funcion se ejecuta, los parámetros "suma" y "cantidad"
+    // pueden ser usados como si fueran variables
+
+    if (cantidad == 0) {
+      return 0;
+    }
+    else {
+      return suma/cantidad;
+    }
+  } // fin de la función
+
+  for(var i=0; i<100; i++) {
+    if (inmuebles[i].operacion == "Alquiler" && inmuebles[i].localidad == "Santa Fe") {
+        cant++; // sumo la cantidad
+        suma = suma + inmuebles[i].precio; // acumulo la suma para el promedio
+    }
+  }
+
+  // aquí utilizo la función promedio que definí arriba, pasándole la suma y
+  // la cantidad calculados.
+  console.log("El promedio de los precios de los alquileres es: " + promedio(suma, cant) );
+
+</script>
