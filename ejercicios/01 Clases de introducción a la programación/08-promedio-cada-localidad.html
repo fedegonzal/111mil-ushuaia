@@ -1,0 +1,119 @@
+<script src="inmuebles.js"></script>
+
+<script>
+
+  // La variable inmuebles tiene una lista (array) de inmuebles
+  // Cada inmueble tiene: localidad, calle, numero, operacion, precio
+  //
+  // Problema:
+  // ---------
+  //
+  // Mostrar el promedio general de precios para cada localidad
+
+
+  // defino un vector de 8 elementos, un elemento para cada localidad.
+  // Cada elemento tiene el nombre de la localidad y dos propiedades más que
+  // usaremos para calcular el promedio (cantidad y suma).
+  var datosLocalidades = [
+	{
+		"localidad": "Santa Fe",
+		"cantidad": 0,
+		"suma": 0
+	},
+	{
+		"localidad": "Santo Tome",
+		"cantidad": 0,
+		"suma": 0
+	},
+	{
+		"localidad": "Colastine Norte",
+		"cantidad": 0,
+		"suma": 0
+	},
+	{
+		"localidad": "Desvio Arijon",
+		"cantidad": 0,
+		"suma": 0
+	},
+	{
+		"localidad": "Sauce Viejo",
+		"cantidad": 0,
+		"suma": 0
+	},
+	{
+		"localidad": "Helvecia",
+		"cantidad": 0,
+		"suma": 0
+	},
+	{
+		"localidad": "Arroyo Leyes",
+		"cantidad": 0,
+		"suma": 0
+	},
+	{
+		"localidad": "Arroyo Aguiar",
+		"cantidad": 0,
+		"suma": 0
+	}
+  ];
+
+  // utilizaremos esta variable para posicionarnos en el vector "datosLocalidades"
+  var localidad;
+
+  // función del ejercio 5
+  function promedio(suma, cantidad) {
+    if (cantidad == 0) {
+      return 0;
+    }
+    else {
+      return suma/cantidad;
+    }
+  } // fin promedio
+
+  // recorro todos los inmuebles
+  for(var i=0; i<100; i++) {
+
+    // Comparo la localidad del inmueble y asigno la variable "localidad"
+    // con la posición correcta del arreglo "datosLocalidades"
+	switch(inmuebles[i].localidad) {
+		case "Santa Fe":
+			localidad = 0;
+			break;
+		case "Santo Tome":
+			localidad = 1;
+			break;
+		case "Colastine Norte":
+			localidad = 2;
+			break;
+		case "Desvio Arijon":
+			localidad = 3;
+			break;
+		case "Sauce Viejo":
+			localidad = 4;
+			break;
+		case "Helvecia":
+			localidad = 5;
+			break;
+		case "Arroyo Leyes":
+			localidad = 6;
+			break;
+		default:
+			localidad = 7; // Arroyo Aguiar
+	} // fin switch
+
+    // teniendo la posición correspondiente a la localidad en la variable "localidad"
+    // utilizo su valor para calcular la cantidad y la suma de esa localidad, con las
+    // que luego sacaremos el promedio
+    datosLocalidades[localidad].cantidad++;
+    datosLocalidades[localidad].suma = datosLocalidades[localidad].suma + inmuebles[i].precio;
+  } // fin for inmuebles
+
+  // recorro las localidades y muestro el promedio
+  for(var i=0; i<8; i++) {
+  	console.log(
+        "El promedio de precios para " + datosLocalidades[i].localidad + " es " +
+  		promedio(datosLocalidades[i].suma, datosLocalidades[i].cantidad)
+  	);
+  } // fin for ciudades
+
+</script>

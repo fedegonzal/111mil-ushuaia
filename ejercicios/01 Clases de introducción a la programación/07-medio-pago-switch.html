@@ -1,0 +1,38 @@
+<script>
+
+    // Problema:
+    // ---------
+    //
+    // Preguntar al usuario que método de pago utilizó para cancelar su compra.
+    // Luego imprimir en consola el descuento que se aplica a la forma de pago.
+    // Los medios de pagos y descuentos son los siguientes:
+	// "E" = Efectivo -> corresponde 30%
+	// "D" = Débito   -> corresponde 20%
+	// "C" = Crédito  -> corresponde 10%
+	// Otros medios de pago -> NO tienen descuento
+
+    // pregunto al usuario por la forma de pago
+	var medioPago = prompt("Ingrese la forma de pago (E,D,C)");
+
+    // evalúo el valor ingresado
+	switch(medioPago) {
+        // en caso de que sea "E" o "e", es efectivo (30%)
+	    case "E":
+	    case "e":
+	        console.log('Tiene un descuento del 30%');
+	        break;
+        // en caso de que sea "D" o "d", es débito (20%)
+	    case "D":
+	    case "d":
+	        console.log('Tiene un descuento del 20%');
+	        break;
+        // en caso de que sea "C" o "c", es Tarjeta de crédito (10%)
+	    case "C":
+	    case "c":
+	        console.log('Tiene un descuento del 10%');
+	        break;
+        // si no ingreso ninguno de los anteriores, no tiene descuento
+	    default:
+	    	console.log('NO tiene un descuento =(');
+	}
+</script>
