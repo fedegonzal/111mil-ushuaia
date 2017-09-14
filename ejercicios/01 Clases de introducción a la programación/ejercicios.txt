@@ -1,23 +1,3 @@
-El archivo inmuebles.js contiene información real de 100 propiedades de una inmobiliaria, algunas en venta y otras en alquiler. Su formato es el siguiente:
-
-var inmuebles = [
-  {
-    "localidad": "Santa Fe",
-    "calle": "Iturraspe",
-    "numero": 2405,
-    "operacion": "Alquiler",
-    "precio": 8500
-  },
-  {
-    "localidad": "Santo Tome",
-    "calle": "1ra Junta",
-    "numero": 4845,
-    "operacion": "Compra",
-    "precio": 5500000
-  },
-  ...
-];
-
 Ejercicios
 ----------
 
@@ -33,3 +13,34 @@ Ejercicios
 
 6. Comparar el promedio de alquileres de las ciudades de Santa Fe y Santo Tomé, e indicar cuál de las dos ciudades es más cara.
 
+7. Preguntar al usuario que método de pago utilizó para cancelar su compra. Luego imprimir en consola el descuento que se aplica a la forma de pago.
+   Los medios de pagos y descuentos son los siguientes:
+   - "E" = Efectivo -> corresponde 30%
+   - "D" = Débito   -> corresponde 20%
+   - "C" = Crédito  -> corresponde 10%
+   - Otros medios de pago -> NO tienen descuento
+
+8. Mostrar el promedio general de precios para cada localidad
+
+9. Hacer un programa que pregunte al usuario por un mes del año y muestre en consola la cantidad de días de ese mes.
+   Los valores que el usuario puede ingresar son:
+   - "E" = Enero
+   - "F" = Febrero
+   - "M" = Marzo
+   - "A" = Abril
+   - "m" = Mayo
+   - "J" = Junio
+   - "j" = Julio
+   - "A" = Agosto
+   - "S" = Septiembre
+   - "O" = Octubre
+   - "N" = Noviembre
+   - "D" = Diciembre
+   - Cualquier otro dato que ingrese, el programa mostrará en consola "Mes incorrecto"
+
+10. Contar la cantidad de inmuebles que hay hasta encontrar el primero con localidad "Colastine Norte".
+
+11. Recorrer los inmuebles en alquiler de Santa Fe, preguntando por cada uno si el usuario quiere alquilarlo.
+    El usuario puede contestar:
+    - "s": En cuyo caso se dejaran de recorrer los inmuebles y se mostrará en consola "Usted alquilo el inmueble: " sumando la calle, número y precio del mismo.
+    - Cualquier otra cosa, se entiende como que no quiere dicho inmueble y se continúa preguntando por el resto.
