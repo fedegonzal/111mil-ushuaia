@@ -10,5 +10,17 @@
   //
   // Contar la cantidad de inmuebles que hay hasta encontrar el primero con localidad "Colastine Norte".
 
+  var i = 0; // variable para iterar el vector
+  var cant = 0; // cantidad de inmuebles
 
+  // voy a usar un while para cortar la cuenta cuando encuetre el primero con
+  // localidad "Colastine Norte".
+  // También debo tener cuidado de no pasar la posición 99 del vector. Por lo tanto,
+  // me queda un while con dos condiciones
+  while( (inmuebles[i].localidad != "Colastine Norte") && (i < 100) ) {
+    cant++; // sumo la cantidad
+    i++; // incremento para consultar el siguiente inmueble
+  }
+
+  console.log("La cantidad de inmuebles hasta Colastine Norte es " + cant);
 </script>

@@ -20,9 +20,11 @@
     // - "D" = Diciembre
     // - Cualquier otro dato que ingrese, el programa mostrará en consola "Mes incorrecto"
 
+    // Pido al usuario el mes
     var mes = prompt("Ingrese un mes");
 
     switch (mes) {
+        // todos los meses de 31 días
         case "E":
         case "M":
         case "m":
@@ -32,15 +34,18 @@
         case "D":
             console.log("El mes tiene 31 días");
             break;
+        // todos los meses de 30 días
         case "A":
         case "J":
         case "S":
         case "N":
             console.log("El mes tiene 30 días");
             break;
+        // Febrero
         case "F":
             console.log("El mes tiene 28 días")
             break;
+        // Mes incorrecto
         default:
             console.log("Mes incorrecto");
     }
