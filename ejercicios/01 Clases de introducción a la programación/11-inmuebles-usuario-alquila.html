@@ -37,12 +37,14 @@
     // continuará con el siguiente inmueble.
     // También debo tener en cuenta no pasarme de la posición 99 del vector, por ejemplo
     // si la persona no eligió ningún alquiler.
-  } while ( (alquila != "s") && (i < 2) );
+  } while ( (alquila != "s") && (i < 100) );
 
   // pregunto si alquila es "s" para saber si la persona realmente alquiló o simplemente
   // no le eligió ningún inmueble
   if (alquila == "s") {
-    console.log("Usted alquiló el inmueble: " + domicilio(inmuebles[i]) + " por " + inmuebles[i].precio);
+    // Observar que utilizo "i-1" porque aunque la persona conteste "s" igualmente suma +1 a "i",
+    // quedando posicionado en el siguiente inmueble
+    console.log("Usted alquiló el inmueble: " + domicilio(inmuebles[i-1]) + " por " + inmuebles[i-1].precio);
   }
   else {
     console.log("NO alquiló ningún inmueble")
