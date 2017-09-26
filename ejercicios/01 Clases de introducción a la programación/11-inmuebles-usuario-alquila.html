@@ -13,5 +13,38 @@
   // - "s": En cuyo caso se dejaran de recorrer los inmuebles y se mostrará en consola "Usted alquilo el inmueble: " sumando la calle, número y precio del mismo.
   // - Cualquier otra cosa, se entiende como que no quiere dicho inmueble y se continúa preguntando por el resto.
 
+  // función útil para mostrar el domicilio completo
+  function domicilio(inmueble) {
+    return inmueble.calle + " " + inmueble.numero;
+  }
 
+  // inicializo la respuesta para que sea distinto de "s"
+  var alquila = "";
+  var i = 0; // inicializo en la primer posición del vector
+
+  do {
+    // si el inmueble es de Santa Fe y es alquiler, pregunto si quiere alquilarlo
+    if (inmuebles[i].localidad == "Santa Fe" && inmuebles[i].operacion == "Alquiler") {
+      alquila = prompt("Quiere alquilar el inmueble en " + domicilio(inmuebles[i]) + " por " + inmuebles[i].precio );
+    }
+
+    // incremento para continuar con el siguiente inmueble
+    i++;
+
+    // llegado a este punto, si la persona decidió alquilar terminará la repetición,
+    // si no continuará a preguntar por el otro inmueble.
+    // Notar que si el inmueble no cumple con las condiciones del "if", simplemente se
+    // continuará con el siguiente inmueble.
+    // También debo tener en cuenta no pasarme de la posición 99 del vector, por ejemplo
+    // si la persona no eligió ningún alquiler.
+  } while ( (alquila != "s") && (i < 100) );
+
+  // pregunto si alquila es "s" para saber si la persona realmente alquiló o simplemente
+  // no le eligió ningún inmueble
+  if (alquila == "s") {
+    console.log("Usted alquiló el inmueble: " + domicilio(inmuebles[i]) + " por " + inmuebles[i].precio);
+  }
+  else {
+    console.log("NO alquiló ningún inmueble")
+  }
 </script>
