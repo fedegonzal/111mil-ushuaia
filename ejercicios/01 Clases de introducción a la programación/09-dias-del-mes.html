@@ -4,6 +4,7 @@
     // ---------
     //
     // Hacer un programa que pregunte al usuario por un mes del año y muestre en consola la cantidad de días de ese mes.
+    // No considerar los años bisiestos.
     // Los valores que el usuario puede ingresar son:
     // - "E" = Enero
     // - "F" = Febrero
@@ -12,11 +13,35 @@
     // - "m" = Mayo
     // - "J" = Junio
     // - "j" = Julio
-    // - "A" = Agosto
+    // - "a" = Agosto
     // - "S" = Septiembre
     // - "O" = Octubre
     // - "N" = Noviembre
     // - "D" = Diciembre
     // - Cualquier otro dato que ingrese, el programa mostrará en consola "Mes incorrecto"
 
+    var mes = prompt("Ingrese un mes");
+
+    switch (mes) {
+        case "E":
+        case "M":
+        case "m":
+        case "j":
+        case "a":
+        case "O":
+        case "D":
+            console.log("El mes tiene 31 días");
+            break;
+        case "A":
+        case "J":
+        case "S":
+        case "N":
+            console.log("El mes tiene 30 días");
+            break;
+        case "F":
+            console.log("El mes tiene 28 días")
+            break;
+        default:
+            console.log("Mes incorrecto");
+    }
 </script>

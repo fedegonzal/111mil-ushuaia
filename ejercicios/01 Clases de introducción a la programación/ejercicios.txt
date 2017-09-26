@@ -22,7 +22,7 @@ Ejercicios
 
 8. Mostrar el promedio general de precios para cada localidad
 
-9. Hacer un programa que pregunte al usuario por un mes del año y muestre en consola la cantidad de días de ese mes.
+9. Hacer un programa que pregunte al usuario por un mes del año y muestre en consola la cantidad de días de ese mes. No considerar los años bisiestos.
    Los valores que el usuario puede ingresar son:
    - "E" = Enero
    - "F" = Febrero
@@ -31,7 +31,7 @@ Ejercicios
    - "m" = Mayo
    - "J" = Junio
    - "j" = Julio
-   - "A" = Agosto
+   - "a" = Agosto
    - "S" = Septiembre
    - "O" = Octubre
    - "N" = Noviembre
