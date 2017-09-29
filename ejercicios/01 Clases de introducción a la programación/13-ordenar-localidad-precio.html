@@ -10,4 +10,42 @@
   //
   // Ordenar los inmuebles por localidad y precio.
 
+  // funcion que recorre los inmubles y los muestra en consola
+  function mostrarInmuebles(inmuebles) {
+    for (var i = 0; i < 100; i++) {
+        console.log(inmuebles[i].localidad + " - " + inmuebles[i].precio
+            + " - " + inmuebles[i].operacion + " - " + inmuebles[i].calle
+            + " " + inmuebles[i].numero);
+    }
+  }
+
+  // ordenamiento por precio de los imuebles con Javascript
+  // la funcion recive dos inmuebles y se debe retornar:
+  // . 1 si el primer inmueble es mayor
+  // . -1 si el primer inmueble es menor
+  // . 0 si son iguales
+  // https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/sort
+  inmuebles.sort(function(inmueble1, inmueble2) {
+    if (inmueble1.localidad > inmueble2.localidad) {
+        return 1;
+    }
+    else if (inmueble1.localidad < inmueble2.localidad) {
+        return -1;
+    }
+    else {
+        // si son la misma localidad, los comparo por precio
+
+        if (inmueble1.precio > inmueble2.precio) {
+            return 1;
+        }
+        else if (inmueble1.precio < inmueble2.precio) {
+            return -1;
+        }
+        else {
+            return 0;
+        }
+    }
+  });
+
+  mostrarInmuebles(inmuebles);
 </script>
