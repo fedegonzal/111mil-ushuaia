@@ -45,10 +45,12 @@ Ejercicios
     - "s": En cuyo caso se dejaran de recorrer los inmuebles y se mostrará en consola "Usted alquilo el inmueble: " sumando la calle, número y precio del mismo.
     - Cualquier otra cosa, se entiende como que no quiere dicho inmueble y se continúa preguntando por el resto.
 
-12. Ordenar los inmuebles por precio de menor a mayor.
+12.0 Ordenar un array de números con el método de selección.
 
-13. Ordenar por localidad y precio.
+--- 12. Ordenar los inmuebles por precio de menor a mayor.
 
-14. Ordenar por localidad, operación y precio.
+--- 13. Ordenar por localidad y precio.
+
+--- 14. Ordenar por localidad, operación y precio.
 
 15. Hacer una función que represente a la operación de multiplicar, utilizando sumas.
