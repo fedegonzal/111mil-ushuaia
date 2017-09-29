@@ -1,0 +1,62 @@
+<script src="inmuebles.js"></script>
+
+<script>
+
+  // La variable inmuebles tiene una lista (array) de inmuebles
+  // Cada inmueble tiene: localidad, calle, numero, operacion, precio
+  //
+  // Problema:
+  // ---------
+  //
+  // Ordenar los inmuebles por localidad, operación y precio.
+
+  const CANT_INMUEBLES = 100;
+  var minimo;
+  var aux;
+
+  // funcion que recorre los inmubles y los muestra en consola
+  function mostrarInmuebles(inmuebles) {
+    for (var i = 0; i < 100; i++) {
+        console.log(inmuebles[i].localidad + " - " + inmuebles[i].operacion
+            + " - " + inmuebles[i].precio + " - " + inmuebles[i].calle
+            + " " + inmuebles[i].numero);
+    }
+  }
+
+  // ordenamiento por seleccion:
+  // https://es.wikipedia.org/wiki/Ordenamiento_por_selecci%C3%B3n
+  // recorre desde el primer elemento hasta el ante último
+  for (var j=0; j < CANT_INMUEBLES-1; j++) {
+
+    // asumo que el mínimo está en la posición de "j"
+    minimo = j;
+
+    // busco el valor mínimo a partir de la posición siguiente a "j"
+    for (var i=j+1; i < CANT_INMUEBLES; i++) {
+
+        if (
+            // si la localidad es "más chica", es el nuevo mínimo
+            (inmuebles[i].localidad < inmuebles[minimo].localidad)
+            ||
+            // O, si las localidades son iguales y la opercación es "más chica", es el nuevo mínimo
+            (inmuebles[i].localidad == inmuebles[minimo].localidad && inmuebles[i].operacion < inmuebles[minimo].operacion)
+            ||
+            // O, si localidad y operacion son iguales, pero el precio menor, es el nuevo mínimo
+            (inmuebles[i].localidad == inmuebles[minimo].localidad && inmuebles[i].operacion == inmuebles[minimo].operacion && inmuebles[i].precio < inmuebles[minimo].precio)
+        ){
+            // actualizo la posición del mínimo
+            minimo = i;
+        }
+    }
+
+    // intercambio la posicion de los inmuebles, dejando ordenado el mínimo.
+    // Para intercambiar es necesario utilizar una varible extra para no
+    // perer el dato
+    aux = inmuebles[j];
+    inmuebles[j] = inmuebles[minimo];
+    inmuebles[minimo] = aux;
+  }
+
+  // muestro los inmuebles
+  mostrarInmuebles(inmuebles);
+</script>
