@@ -6,7 +6,7 @@ public class Vivienda extends Inmueble {
     boolean patio;
     boolean mascotas;
 
-    public Vivienda(int dormitorios, String calle, int numero, String operacion, Double precio) {
+    public Vivienda(int dormitorios, String calle, String numero, String operacion, Double precio) {
     
         super(calle, numero, operacion, precio);
         this.dormitorios = dormitorios;
