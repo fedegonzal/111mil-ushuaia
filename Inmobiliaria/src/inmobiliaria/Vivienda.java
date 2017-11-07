@@ -15,7 +15,7 @@ public class Vivienda extends Inmueble {
     
     @Override
     public String domicilio() {
-        return this.calle + " " + this.numero;
+        return this.getCalle() + " " + this.getNumero();
     }
 
     @Override
