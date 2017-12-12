@@ -1,5 +1,13 @@
 package inmuebleslista;
 
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 public class PantallaPrincipal extends javax.swing.JFrame {
     
     InmueblesConsultas ic = new InmueblesConsultas();
@@ -87,21 +95,67 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         String consulta = (String) this.jComboConsultas.getSelectedItem();
         String parametro = this.jTextParametro.getText();
         
+        ResultSet rs = null;
+        
         switch (consulta) {
             case "Todos los inmuebles":
-                this.ic.getTodos();
+                rs = this.ic.getTodos();
                 break;
                 
             case "Cantidad por localidad":
-                this.ic.getCantPorLocalidad();
+                rs = this.ic.getCantPorLocalidad();
                 break;
                 
             case "Inmuebles de una localidad":
-                this.ic.getInmueblesPorLocalidad(parametro);
+                rs = this.ic.getInmueblesPorLocalidad(parametro);
                 break;
+        }
+        
+        try {
+            //actualizar la tabla
+            this.setTable(rs);
+        } catch (SQLException ex) {
+            Logger.getLogger(PantallaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
+    public void setTable(ResultSet rs) throws SQLException {
+        this.jTableResultados.setVisible(true);
+        
+        // le pido al resulset que me de el nombre de las columnas
+        ResultSetMetaData metaData = rs.getMetaData();
+
+        // Nombre de las columnas. Ejemplo:["domicilio", "operacion", "precio", "localidad"]
+        Vector<String> columnNames = new Vector<String>();
+        
+        // obtenemos la cantidad de columnas
+        int columnCount = metaData.getColumnCount();
+        for (int column = 1; column <= columnCount; column++) {
+            // agregamos a nuestro vector de strings el nombre de cada columna
+            columnNames.add(metaData.getColumnName(column)); 
+        }
+        
+        System.out.println(columnNames);
+
+        // Datos de la tabla
+        Vector<Vector<String>> data = new Vector<Vector<String>>();
+        
+        // mientras tenga filas
+        while (rs.next()) {
+            Vector<String> vector = new Vector<String>();
+            // para cada columna
+            for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
+                vector.add(rs.getString(columnIndex));
+            }
+            data.add(vector);
+        }
+        
+        System.out.println(data);
+
+        this.jTableResultados.setModel(new DefaultTableModel(data, columnNames));
+
+    }
+    
     /**
      * @param args the command line arguments
      */
