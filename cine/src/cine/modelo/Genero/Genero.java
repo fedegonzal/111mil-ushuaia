@@ -1,4 +1,4 @@
-package cine.modelo;
+package cine.modelo.Genero;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -9,32 +9,27 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Rol")
-public class Rol implements Serializable {
-    
+@Table(name="Genero")
+public class Genero implements Serializable {
+
     //
     // Atributos
     //
     
     @Id
-    @Column(name="id_rol")
+    @Column(name="id_genero")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int id_rol;
+    private int id_genero;
     
-    @Column(name = "nombre")
+    @Column(name="nombre")
     private String nombre;
 
     /**
      * Constructor vacío. Requirido por hibernate
      */
-    public Rol() {
+    public Genero() {
     }
     
-    /**
-     * Conversión de la clase a string
-     * 
-     * @return
-     */
     @Override
     public String toString() {
         return this.getNombre();
@@ -43,36 +38,19 @@ public class Rol implements Serializable {
     //
     // Getters y Setters
     //
-    
-    /**
-     * 
-     * @return 
-     */
-    public int getId_rol() {
-        return id_rol;
+
+    public int getId_genero() {
+        return id_genero;
     }
 
-    /**
-     * Actualiza el ID
-     * @param id_rol 
-     */
-    public void setId_rol(int id_rol) {
-        this.id_rol = id_rol;
+    public void setId_genero(int id_genero) {
+        this.id_genero = id_genero;
     }
-    
 
-    /**
-     * 
-     * @return 
-     */
     public String getNombre() {
         return nombre;
     }
 
-    /**
-     * 
-     * @param nombre 
-     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

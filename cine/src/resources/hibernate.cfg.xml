@@ -2,14 +2,23 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
+      
+    <!-- Configuración de la conexión a la base de datos -->
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/poo-cine?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/cine?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
+    <!-- <property name="hibernate.connection.password">123456</property> -->
     
-    <mapping resource="resources/genero.hbm.xml"/>
-    <mapping resource="resources/calificacion.hbm.xml"/>
-    <mapping class="cine.modelo.PaisDeOrigen"/>
+    <!-- Clases que tienen anotaciones y permiten la interacción entre Objetos y BD -->
+    <mapping class="cine.modelo.Sexo"/>
+    <mapping class="cine.modelo.Rol"/>
+    <mapping class="cine.modelo.Actor"/>
+    <mapping class="cine.modelo.Personaje"/>
+    <mapping class="cine.modelo.Calificacion.Calificacion"/>
+    <mapping class="cine.modelo.Genero.Genero"/>
+    <mapping class="cine.modelo.PaisDeOrigen.PaisDeOrigen"/>
+    <mapping class="cine.modelo.Pelicula.Pelicula"/>    
     
   </session-factory>
 </hibernate-configuration>

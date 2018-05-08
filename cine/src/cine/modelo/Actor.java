@@ -1,23 +1,49 @@
-
 package cine.modelo;
 
-/**
- *
- * @author leo
- */
-public class Actor {
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Actor")
+public class Actor implements Serializable {
+    
+    //
+    // Atributos
+    //
+    
+    @Id
+    @Column(name="id_actor")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id_actor;
+    
+    @Column(name = "animado")
     private boolean animado;
+    
+    @Column(name = "apellido")
     private String apellido;
+    
+    @Column(name = "nombre")
     private String nombre;
+    
+    /**
+     * Relacion: un actor tiene/pertenece a un Sexo.
+     * Le explico que columna hace el vínculo
+     */
+    @ManyToOne
+    @JoinColumn(name = "id_sexo")
     private Sexo sexo;
 
-    public Actor(int id_actor, boolean animado, String apellido, String nombre, Sexo sexo) {
-        this.id_actor = id_actor;
-        this.animado = animado;
-        this.apellido = apellido;
-        this.nombre = nombre;
-        this.sexo = sexo;
+    /**
+     * Constructor vacío. Requirido por hibernate
+     */
+    public Actor() {
     }
     
     /**
@@ -46,6 +72,20 @@ public class Actor {
     public String nombreCompleto() {
         return this.getApellido() + " " + this.getNombre();
     }
+    
+    /**
+     * Conversión de la clase a string
+     * 
+     * @return
+     */
+    @Override
+    public String toString() {
+        return this.nombreCompleto();
+    }
+    
+    //
+    // Getters y Setters
+    //
 
     /**
      * @return the id_actor
@@ -116,11 +156,4 @@ public class Actor {
     public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
-
-    @Override
-    public String toString() {
-        return this.getApellido() + " " + this.getNombre();
-    }
-    
-    
 }

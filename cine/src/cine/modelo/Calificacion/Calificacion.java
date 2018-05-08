@@ -1,4 +1,5 @@
-package cine.modelo;
+
+package cine.modelo.Calificacion;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -8,58 +9,63 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Declaro que esta clase se condice con la tabla "Calificacion"
+ */
 @Entity
-@Table(name = "Rol")
-public class Rol implements Serializable {
-    
+@Table(name="Calificacion")
+public class Calificacion implements Serializable {
+ 
     //
     // Atributos
     //
     
+    /**
+     * Clave primaria, es requerida
+     */
     @Id
-    @Column(name="id_rol")
+    @Column(name="id_calificacion")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int id_rol;
+    private int id_calificacion;
     
-    @Column(name = "nombre")
+    /**
+     * Columna nombre
+     */
+    @Column(name="nombre")
     private String nombre;
 
     /**
      * Constructor vacío. Requirido por hibernate
      */
-    public Rol() {
+    public Calificacion() {
     }
-    
-    /**
-     * Conversión de la clase a string
-     * 
-     * @return
-     */
+
     @Override
     public String toString() {
         return this.getNombre();
     }
-
+    
+    
+    
     //
     // Getters y Setters
     //
-    
+
     /**
      * 
      * @return 
      */
-    public int getId_rol() {
-        return id_rol;
+    public int getId_calificacion() {
+        return id_calificacion;
     }
 
     /**
-     * Actualiza el ID
-     * @param id_rol 
+     * 
+     * @param id_calificacion 
      */
-    public void setId_rol(int id_rol) {
-        this.id_rol = id_rol;
+    public void setId_calificacion(int id_calificacion) {
+        this.id_calificacion = id_calificacion;
     }
-    
 
     /**
      * 
