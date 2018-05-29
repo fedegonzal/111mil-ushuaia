@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+      
+    <!-- Configuración de la conexión a la base de datos -->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/poo-pizzeria?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <!-- <property name="hibernate.connection.password">123456</property> -->
+    
+    <mapping class="ar.untdf.pizzeria.pizzeria.modelo.TamanioPizza"/>
+    <mapping class="ar.untdf.pizzeria.pizzeria.modelo.TipoPizza"/>
+    <mapping class="ar.untdf.pizzeria.pizzeria.modelo.VariedadPizza"/>
+    <mapping class="ar.untdf.pizzeria.pizzeria.modelo.Pizza"/>
+    
+    <mapping class="ar.untdf.pizzeria.pizzeria.modelo.EstadoFactura"/>
+    <mapping class="ar.untdf.pizzeria.pizzeria.modelo.Factura"/>
+    
+    <mapping class="ar.untdf.pizzeria.pizzeria.modelo.EstadoPedido"/>
+    <mapping class="ar.untdf.pizzeria.pizzeria.modelo.DetallePedido"/>
+    <mapping class="ar.untdf.pizzeria.pizzeria.modelo.Pedido"/>
+    
+    
+  </session-factory>
+</hibernate-configuration>
