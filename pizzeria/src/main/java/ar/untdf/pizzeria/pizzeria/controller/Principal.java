@@ -9,6 +9,7 @@ import ar.untdf.pizzeria.pizzeria.modelo.Pizza;
 import ar.untdf.pizzeria.pizzeria.modelo.TamanioPizza;
 import ar.untdf.pizzeria.pizzeria.modelo.TipoPizza;
 import ar.untdf.pizzeria.pizzeria.modelo.VariedadPizza;
+import ar.untdf.pizzeria.pizzeria.vista.VistaPrincipal;
 import java.util.List;
 import java.util.logging.Level;
 import org.hibernate.Session;
@@ -84,6 +85,10 @@ public class Principal {
         ///
         session.close();
         sessionFactory.close();
+        
+        
+        VistaPrincipal vp = new VistaPrincipal(tamanos);
+        vp.setVisible(true);
     }
     
 }
