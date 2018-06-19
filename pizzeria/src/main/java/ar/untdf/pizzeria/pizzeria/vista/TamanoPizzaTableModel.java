@@ -44,8 +44,6 @@ public class TamanoPizzaTableModel extends AbstractTableModel {
     @Override
     public String getColumnName(int column) {
         return COLUMNAS[column];
-    }
-    
-    
+    }    
     
 }

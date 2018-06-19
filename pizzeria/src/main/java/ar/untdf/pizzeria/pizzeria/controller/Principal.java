@@ -49,7 +49,7 @@ public class Principal {
         List<TamanioPizza> tamanos = session.createQuery("from TamanioPizza")
                 .list();
         System.out.println(tamanos);
-        
+                 
         List<TipoPizza> tipos = session.createQuery("from TipoPizza")
                 .list();
         System.out.println(tipos);
@@ -87,7 +87,7 @@ public class Principal {
         sessionFactory.close();
         
         
-        VistaPrincipal vp = new VistaPrincipal(tamanos);
+        VistaPrincipal vp = new VistaPrincipal(tamanos, pedidos);
         vp.setVisible(true);
     }
     

@@ -5,6 +5,7 @@
  */
 package ar.untdf.pizzeria.pizzeria.vista;
 
+import ar.untdf.pizzeria.pizzeria.modelo.Pedido;
 import ar.untdf.pizzeria.pizzeria.modelo.TamanioPizza;
 import java.util.List;
 
@@ -15,17 +16,20 @@ import java.util.List;
 public class VistaPrincipal extends javax.swing.JFrame {
 
     private TamanoPizzaTableModel tpTableModel;
+    private PedidosTableModel pTableModel;
     
     /**
      * Creates new form VistaPrincipal
      * @param tamanosPizza
      */
-    public VistaPrincipal(List<TamanioPizza> tamanosPizza) {
+    public VistaPrincipal(List<TamanioPizza> tamanosPizza, List<Pedido> pedidos) {
         this.tpTableModel = new TamanoPizzaTableModel(tamanosPizza);
+        this.pTableModel = new PedidosTableModel(pedidos);
         
         initComponents();
         
-        this.jTable1.setModel(tpTableModel);
+        this.jTableTamanoPizza.setModel(tpTableModel);
+        this.jTablePedidos.setModel(pTableModel);
     }
 
     /**
@@ -38,11 +42,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableTamanoPizza = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTablePedidos = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableDetPed = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableTamanoPizza.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -53,32 +64,115 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableTamanoPizza);
+
+        jTablePedidos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTablePedidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablePedidosMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTablePedidos);
+
+        jTableDetPed.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTableDetPed);
+
+        jLabel1.setText("Tamaños de pizza");
+
+        jLabel2.setText("Pedidos");
+
+        jLabel3.setText("Detalle pedido");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(127, 127, 127)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(147, 147, 147)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(141, 141, 141)
+                                .addComponent(jLabel3)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(3, 3, 3)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(13, 13, 13)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addGap(8, 8, 8)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTablePedidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePedidosMouseClicked
+
+        int filaSeleccionada = this.jTablePedidos.getSelectedRow();
+        
+        // validamos que haya una fila seleccionada
+        if (filaSeleccionada >= 0) {
+            Pedido pedido = this.pTableModel.getPedidoEn(filaSeleccionada);
+            
+            DetallePedidoTableModel dptm = new DetallePedidoTableModel(pedido.getDetallesPedido());
+            this.jTableDetPed.setModel(dptm);
+        }
+    }//GEN-LAST:event_jTablePedidosMouseClicked
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTableDetPed;
+    private javax.swing.JTable jTablePedidos;
+    private javax.swing.JTable jTableTamanoPizza;
     // End of variables declaration//GEN-END:variables
 }
